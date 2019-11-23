@@ -1,0 +1,259 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+/* 外部容器 */
+.container{
+    width: 720px;
+    height: 720px;
+    /* border: 1px solid red; */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 月份容器 */
+.month , .day , .hour , .minute , .second , .ampm{
+    width: 200px;
+    height: 200px;
+    /* border: 1px solid red; */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+.box , .ri , .hourBox , .minuBox{
+    width: 200px;
+    height: 20px;
+    line-height: 20px;
+    /* border: 1px solid red; */
+    position: absolute;
+}
+.box>div , .ri>div{
+    position: absolute;
+}
+.box>div:first-child{
+    right: 0;
+}
+.box>div:last-child{
+    left: 0;
+    transform: rotate(180deg);
+}
+/* 以 39 为基准 */
+.mon28{
+    transform: rotate(-30deg);
+}
+.mon17{
+    transform: rotate(-60deg);
+}
+
+.mon410{
+    transform: rotate(30deg);
+}
+.mon511{
+    transform: rotate(60deg);
+}
+.mon612{
+    transform: rotate(90deg);
+}
+
+/* 日期容器 */
+.day{
+    width: 320px;
+    height: 320px;
+}
+.ri{
+    width: 320px;
+    /* border: 1px solid blue; */
+    /* font-size: 13px; */
+}
+/* 以 824 为基准 */
+.day723{
+    transform: rotate(-11.25deg);
+}
+.day622{
+    transform: rotate(-22.5deg);
+}
+.day521{
+    transform: rotate(-33.75deg);
+}
+.day420{
+    transform: rotate(-45deg);
+}
+.day319{
+    transform: rotate(-56.25deg);
+}
+.day218{
+    transform: rotate(-67.5deg);
+}
+.day117{
+    transform: rotate(-78.75deg);
+}
+
+.day925{
+    transform: rotate(11.25deg);
+}
+.day1026{
+    transform: rotate(22.5deg);
+}
+.day1127{
+    transform: rotate(33.75deg);
+}
+.day1228{
+    transform: rotate(45deg);
+}
+.day1329{
+    transform: rotate(56.25deg);
+}
+.day1430{
+    transform: rotate(67.5deg);
+}
+.day1531{
+    transform: rotate(78.75deg);
+}
+.day1632{
+    transform: rotate(90deg);
+}
+
+/* 小时容器 */
+.hour{
+    width: 420px;
+    height: 420px;
+}
+.hourBox{
+    width: 420px;
+    /* border: 1px solid red; */
+    /* font-size: 13px; */
+}
+
+/* 分钟容器 */
+.minute{
+    width: 550px;
+    height: 550px;
+}
+.minuBox{
+    width: 550px;
+    /* border: 1px solid blue; */
+    /* font-size: 13px; */
+}
+/* 以 1545 为基准 */
+.minu1444{
+    transform: rotate(-6deg);
+}
+.minu1343{
+    transform: rotate(-12deg);
+}
+.minu1242{
+    transform: rotate(-18deg);
+}
+.minu1141{
+    transform: rotate(-24deg);
+}
+.minu1040{
+    transform: rotate(-30deg);
+}
+.minu939{
+    transform: rotate(-36deg);
+}
+.minu838{
+    transform: rotate(-42deg);
+}
+.minu737{
+    transform: rotate(-48deg);
+}
+.minu636{
+    transform: rotate(-54deg);
+}
+.minu535{
+    transform: rotate(-60deg);
+}
+.minu434{
+    transform: rotate(-66deg);
+}
+.minu333{
+    transform: rotate(-72deg);
+}
+.minu232{
+    transform: rotate(-78deg);
+}
+.minu131{
+    transform: rotate(-84deg);
+}
+.minu1646{
+    transform: rotate(6deg);
+}
+.minu1747{
+    transform: rotate(12deg);
+}
+.minu1848{
+    transform: rotate(18deg);
+}
+.minu1949{
+    transform: rotate(24deg);
+}
+.minu2050{
+    transform: rotate(30deg);
+}
+.minu2151{
+    transform: rotate(36deg);
+}
+.minu2252{
+    transform: rotate(42deg);
+}
+.minu2353{
+    transform: rotate(48deg);
+}
+.minu2454{
+    transform: rotate(54deg);
+}
+.minu2555{
+    transform: rotate(60deg);
+}
+.minu2656{
+    transform: rotate(66deg);
+}
+.minu2757{
+    transform: rotate(72deg);
+}
+.minu2858{
+    transform: rotate(78deg);
+}
+.minu2959{
+    transform: rotate(84deg);
+}
+.minu3060{
+    transform: rotate(90deg);
+}
+
+/* 秒钟容器 */
+.second{
+    width: 680px;
+    height: 680px;
+}
+.secondBox{
+    width: 680px;
+    /* font-size: 13px; */
+}
+
+/* 上午下午容器 */
+.ampm{
+    width: 100px;
+    height: 100px;
+    /* border: 1px solid red; */
+    font-size: 18px;
+    text-align: center;
+}
+
+
+/* @keyframes roundMonth {
+    from{
+        transform: rotate(60deg);
+    }
+    to{
+        transform: rotate(var(--angleRound));
+    }
+} */

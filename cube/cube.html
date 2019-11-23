@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>立方体</title>
+    <style>
+        /* 1.给 html 添加背景渐变色 */
+        html{
+            background: linear-gradient(0deg, #9ed128 ,#358b98 );
+            opacity: 0.8;
+            height: 100%;
+        }
+
+        /* 2.为 box 设置透视效果 perspective 属性可为number，也可为none，none相当于为0，不设置透视效果 */
+        .box{
+            margin-top: 200px;
+            perspective:1000px;
+        }
+
+        /* 3.定义最外层包裹6个面的立方体，并且定义动画，使其旋转，然后再定义那六个面的位置，到时候六个面一起旋转 */
+        .cube{
+            width: 200px;
+            height: 200px;
+            /* position: relative; */
+            margin: auto;
+            transform-style:preserve-3d;/*定义3d转换*/
+            animation: rotate 15s infinite;/*animation：动画名字 时长 无限循环 线性速度（匀速）*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @keyframes rotate {
+            from{
+                transform: rotateY(0deg) rotateX(0deg);
+            }
+            to{
+                transform: rotateY(360deg) rotateX(360deg);
+            }
+        }
+
+        /* 4.定义每一个面的宽高、行高等内容 */
+        .cube>div{
+            height: 100%;
+            width: 100%;
+            opacity: 0.9;
+            position: absolute;
+            border: 1px solid #fff;
+        }
+        .cube>span{
+            height: 100px;
+            width: 100px;
+            opacity: 0.9;
+            position: absolute;
+            border: 1px solid #fff;
+        }
+
+        /* 5.根据坐标系对每一个面定位，旋转得到立方体 */
+        .front{
+            transform: translateZ(100px);
+        }
+        .back{
+            transform: translateZ(-100px);
+        }   
+        .left{
+            transform: rotateY(90deg) translateZ(-100px);
+        }
+        .right{
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        .top{
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .bottom{
+            transform: rotateX(90deg) translateZ(-100px);
+        }
+
+        .cube>div>img{
+            width: 100%;
+            height: 100%;
+        }
+        .cube>span>img{
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 5-1.设置小立方体 */
+        .in_front{
+            transform: translateZ(50px);
+        }
+        .in_back{
+            transform: translateZ(-50px);
+        }   
+        .in_left{
+            transform: rotateY(90deg) translateZ(-50px);
+        }
+        .in_right{
+            transform: rotateY(90deg) translateZ(50px);
+        }
+        .in_top{
+            transform: rotateX(90deg) translateZ(50px);
+        }
+        .in_bottom{
+            transform: rotateX(90deg) translateZ(-50px);
+        }
+        .cube img{
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 设置鼠标划过动画 */
+        @keyframes frontFace{
+            from{
+                transform: translateZ(100px);
+            }
+            to{
+                transform: translateZ(200px);
+            }
+        }
+        @keyframes back_frontFace{
+            from{
+                transform: translateZ(200px);
+            }
+            to{
+                transform: translateZ(100px);
+            }
+        }
+        @keyframes backFace{
+            from{
+                transform: translateZ(-100px);
+            }
+            to{
+                transform: translateZ(-200px);
+            }
+        }
+        @keyframes back_backFace{
+            from{
+                transform: translateZ(-200px);
+            }
+            to{
+                transform: translateZ(-100px);
+            }
+        }
+        @keyframes leftFace{
+            from{
+                transform: rotateY(90deg) translateZ(-100px);
+            }
+            to{
+                transform: rotateY(90deg) translateZ(-200px);
+            }
+        }
+        @keyframes back_leftFace{
+            from{
+                transform: rotateY(90deg) translateZ(-200px);
+            }
+            to{
+                transform: rotateY(90deg) translateZ(-100px);
+            }
+        }
+        @keyframes rightFace{
+            from{
+                transform: rotateY(90deg) translateZ(100px);
+            }
+            to{
+                transform: rotateY(90deg) translateZ(200px);
+            }
+        }
+        @keyframes back_rightFace{
+            from{
+                transform: rotateY(90deg) translateZ(200px);
+            }
+            to{
+                transform: rotateY(90deg) translateZ(100px);
+            }
+        }
+        @keyframes topFace{
+            from{
+                transform: rotateX(90deg) translateZ(100px);
+            }
+            to{
+                transform: rotateX(90deg) translateZ(200px);
+            }
+        }
+        @keyframes back_topFace{
+            from{
+                transform: rotateX(90deg) translateZ(200px);
+            }
+            to{
+                transform: rotateX(90deg) translateZ(100px);
+            }
+        }
+        @keyframes bottomFace{
+            from{
+                transform: rotateX(90deg) translateZ(-100px);
+            }
+            to{
+                transform: rotateX(90deg) translateZ(-200px);
+            }
+        }
+        @keyframes back_bottomFace{
+            from{
+                transform: rotateX(90deg) translateZ(-200px);
+            }
+            to{
+                transform: rotateX(90deg) translateZ(-100px);
+            }
+        }
+
+        /* 6.设置鼠标划过，让每一个面向外走100px */
+        .cube:hover .front{
+            /* transform: translateZ(200px); */
+            animation: frontFace 1s;
+            animation-fill-mode: forwards;
+        }
+        .cube:hover .back{
+            animation: backFace 1s;
+            animation-fill-mode: forwards;
+        }
+        .cube:hover .left{
+            animation: leftFace 1s;
+            animation-fill-mode: forwards;
+        }
+        .cube:hover .right{
+            animation: rightFace 1s;
+            animation-fill-mode: forwards;   
+        }
+        .cube:hover .top{
+            animation: topFace 1s;
+            animation-fill-mode: forwards;
+        }
+        .cube:hover .bottom{
+            animation: bottomFace 1s;
+            animation-fill-mode: forwards;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+        <!-- 立方体 -->
+        <div class="cube">
+            <!-- 六个面 -->
+            <div class="front">
+                <img src="imgs/1.jpg" alt="" >
+            </div>
+            <div class="back">
+                <img src="imgs/2.jpg" alt="" >
+            </div>
+            <div class="left">
+                <img src="imgs/3.jpg" alt="" >
+            </div>
+            <div class="right">
+                <img src="imgs/4.jpg" alt="" >
+            </div>
+            <div class="top">
+                <img src="imgs/5.jpg" alt="" >
+            </div>
+            <div class="bottom">
+                <img src="imgs/6.jpg" alt="" >
+            </div>
+
+            <!-- 小立方体 -->
+            <span class="in_front">
+                <img src="imgs/1.jpg" alt="">
+            </span>
+            <span class="in_back">
+                <img src="imgs/2.jpg" alt="">
+            </span>
+            <span class="in_left">
+                <img src="imgs/3.jpg" alt="">
+            </span>
+            <span class="in_right">
+                <img src="imgs/4.jpg" alt="">
+            </span>
+            <span class="in_top">
+                <img src="imgs/5.jpg" alt="">
+            </span>
+            <span class="in_bottom">
+                <img src="imgs/6.jpg" alt="">
+            </span>
+        </div>
+    </div>
+
+    <script>
+        
+        var cube = document.getElementsByClassName("cube")[0];
+        cube.onmouseleave = function() {
+            // 声明大立方体的六个面
+            var front = document.getElementsByClassName("front")[0];
+            var back = document.getElementsByClassName("back")[0];
+            var left = document.getElementsByClassName("left")[0];
+            var right = document.getElementsByClassName("right")[0];
+            var top = document.getElementsByClassName("top")[0];
+            var bottom = document.getElementsByClassName("bottom")[0];
+
+            // 为每个面设置 animation 属性
+            front.style.animation = "back_frontFace 1s";
+            back.style.animation = "back_backFace 1s";
+            left.style.animation = "back_leftFace 1s";
+            right.style.animation = "back_rightFace 1s";
+            top.style.animation = "back_topFace 1s";
+            bottom.style.animation = "back_bottomFace 1s";
+
+            // 当动画执行完之后，清除元素上面的 animation 属性，为下次鼠标划过执行动画
+            var timer = setTimeout(function(){
+                front.style.animation = "";
+                back.style.animation = "";
+                left.style.animation = "";
+                right.style.animation = "";
+                top.style.animation = "";
+                bottom.style.animation = "";
+            }, 1000);
+        }
+        
+    </script>
+
+</body>
+</html>
