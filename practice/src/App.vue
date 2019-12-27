@@ -79,6 +79,7 @@
     <hr />
     <UserName></UserName>
     <List></List>
+    <Listsort></Listsort>
   </div>
 </template>
 
@@ -87,6 +88,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import UserName from "./components/Name";
 import List from "./components/List";
+import Listsort from "./components/Listsort";
 
 export default {
   name: "App",
@@ -94,7 +96,8 @@ export default {
     Header,
     Footer,
     UserName,
-    List
+    List,
+    Listsort
   },
   data() {
     return {
