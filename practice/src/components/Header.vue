@@ -16,14 +16,14 @@ export default {
       msg: '这里是Header',
       classA: 'changeColor',
       fontSize: 25
-    };
+    }
   },
   methods: {
     changeColor() {
-      this.classA = 'changeColor2';
+      this.classA = 'changeColor2'
     }
   }
-};
+}
 </script>
 
 <style scoped>
