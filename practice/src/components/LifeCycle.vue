@@ -7,27 +7,27 @@
 
 <script>
 export default {
-  name: "LifeCycle",
+  name: 'LifeCycle',
   data() {
     return {
       isShow: true
-    };
+    }
   },
   methods: {
     destroyVM() {
-      this.$destroy();
+      this.$destroy()
     }
   },
   mounted() {
     this.intervalId = setInterval(() => {
-      console.log("-----");
-      this.isShow = !this.isShow;
-    }, 1000);
+      console.log('-----')
+      this.isShow = !this.isShow
+    }, 1000)
   },
   beforeDestroy() {
-    clearInterval(this.intervalId);
+    clearInterval(this.intervalId)
   }
-};
+}
 </script>
 
 <style scoped></style>

@@ -10,17 +10,17 @@
 
 <script>
 export default {
-  name: "header",
+  name: 'header',
   data() {
     return {
-      msg: "这里是Header",
-      classA: "changeColor",
+      msg: '这里是Header',
+      classA: 'changeColor',
       fontSize: 25
     };
   },
   methods: {
     changeColor() {
-      this.classA = "changeColor2";
+      this.classA = 'changeColor2';
     }
   }
 };

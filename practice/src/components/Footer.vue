@@ -1,7 +1,5 @@
 <template>
-  <h1 @click="updateColor" :class="{ color1: isA, color2: isB }">
-    {{ msg }}
-  </h1>
+  <h1 @click="updateColor" :class="{ color1: isA, color2: isB }">{{ msg }}</h1>
 </template>
 
 <script>

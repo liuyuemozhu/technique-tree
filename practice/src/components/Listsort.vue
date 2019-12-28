@@ -15,16 +15,16 @@
 
 <script>
 export default {
-  name: "Listsort",
+  name: 'Listsort',
   data() {
     return {
-      searchName: "",
+      searchName: '',
       orderType: 0,
       fruit: [
-        { name: "apple", price: 2 },
-        { name: "orange", price: 2.5 },
-        { name: "peach", price: 1.5 },
-        { name: "pear", price: 2.2 }
+        { name: 'apple', price: 2 },
+        { name: 'orange', price: 2.5 },
+        { name: 'peach', price: 1.5 },
+        { name: 'pear', price: 2.2 }
       ]
     };
   },
