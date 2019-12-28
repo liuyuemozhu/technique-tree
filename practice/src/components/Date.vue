@@ -7,18 +7,18 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import Vue from 'vue'
 Vue.filter('dateString', function(value) {
-  return value.toLocaleString();
-});
+  return value.toLocaleString()
+})
 export default {
   name: 'Date',
   data() {
     return {
       date: new Date()
-    };
+    }
   }
-};
+}
 </script>
 
 <style scoped></style>

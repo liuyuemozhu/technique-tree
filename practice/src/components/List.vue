@@ -31,19 +31,19 @@ export default {
         { name: 'peach', price: 1.5 },
         { name: 'pear', price: 2.2 }
       ]
-    };
+    }
   },
   methods: {
     deleteFruit(index) {
-      console.log('点击了第' + ' ' + index + ' ' + '个delete按钮');
-      this.fruit.splice(index, 1);
+      console.log('点击了第' + ' ' + index + ' ' + '个delete按钮')
+      this.fruit.splice(index, 1)
     },
     updateFruit(index, newF) {
-      console.log('点击了update按钮');
-      this.fruit.splice(index, 1, newF);
+      console.log('点击了update按钮')
+      this.fruit.splice(index, 1, newF)
     }
   }
-};
+}
 </script>
 
 <style scoped></style>

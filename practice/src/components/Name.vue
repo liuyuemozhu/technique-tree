@@ -30,32 +30,32 @@ export default {
       firstName: 'A',
       lastName: 'B',
       fullName2: 'A C'
-    };
+    }
   },
   computed: {
     //   初始化显示、相关的data属性发生改变时，computed内的方法执行
     fullName1() {
-      console.log('fullName()');
-      return this.firstName + ' ' + this.lastName;
+      console.log('fullName()')
+      return this.firstName + ' ' + this.lastName
     },
     fullName3: {
       get() {
-        return this.firstName + ' ' + this.lastName;
+        return this.firstName + ' ' + this.lastName
       },
       set(value) {
-        const names = value.split(' ');
-        this.firstName = names[0];
-        this.lastName = names[1];
+        const names = value.split(' ')
+        this.firstName = names[0]
+        this.lastName = names[1]
       }
     }
   },
   watch: {
     firstName: function(value) {
-      console.log(this);
-      this.fullName2 = value + ' ' + this.lastName;
+      console.log(this)
+      this.fullName2 = value + ' ' + this.lastName
     }
   }
-};
+}
 </script>
 
 <style scoped></style>

@@ -4,21 +4,21 @@
 
 <script>
 export default {
-  name: "Footer",
+  name: 'Footer',
   data() {
     return {
-      msg: "这里是Footer",
+      msg: '这里是Footer',
       isA: true,
       isB: false
-    };
+    }
   },
   methods: {
     updateColor() {
-      this.isA = false;
-      this.isB = true;
+      this.isA = false
+      this.isB = true
     }
   }
-};
+}
 </script>
 
 <style scoped>
