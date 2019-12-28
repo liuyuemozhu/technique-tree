@@ -80,6 +80,10 @@
     <UserName></UserName>
     <List></List>
     <Listsort></Listsort>
+    <hr />
+    <LifeCycle></LifeCycle>
+    <hr />
+    <Date></Date>
   </div>
 </template>
 
@@ -89,6 +93,8 @@ import Footer from "./components/Footer";
 import UserName from "./components/Name";
 import List from "./components/List";
 import Listsort from "./components/Listsort";
+import LifeCycle from "./components/LifeCycle";
+import Date from "./components/Date";
 
 export default {
   name: "App",
@@ -97,7 +103,9 @@ export default {
     Footer,
     UserName,
     List,
-    Listsort
+    Listsort,
+    LifeCycle,
+    Date
   },
   data() {
     return {
