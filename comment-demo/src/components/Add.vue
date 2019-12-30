@@ -1,6 +1,6 @@
 <template>
   <div class="add-container">
-    <form action="">
+    <form action>
       <span>{{ msg }}</span>
       <br />
       <input type="text" placeholder="请填写用户名" v-model="name" />
@@ -15,7 +15,7 @@
         placeholder="请填写评论内容"
         v-model="content"
       ></textarea>
-      <button class="subm" @click="add">提交</button>
+      <button class="subm" @click.prevent="add">提交</button>
     </form>
   </div>
 </template>

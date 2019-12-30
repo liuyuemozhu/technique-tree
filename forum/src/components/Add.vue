@@ -1,6 +1,6 @@
 <template>
   <div class="add-container">
-    <form action="">
+    <form action>
       <span>{{ addMsg }}</span>
       <br />
       <input type="text" placeholder="请输入用户名" v-model="name" />
@@ -16,7 +16,7 @@
         v-model="content"
       ></textarea>
       <br />
-      <button class="subm" @click="addItem">提交</button>
+      <button class="subm" @click.prevent="addItem">提交</button>
     </form>
   </div>
 </template>
@@ -45,6 +45,10 @@ export default {
       // 1.检查输入内容合法性
       const name = this.name
       const content = this.content
+      if (!name || !content) {
+        alert('用户名或评论内容不能为空')
+        return
+      }
       // 2.输入内容封装为对象
       const comment = {
         name,
