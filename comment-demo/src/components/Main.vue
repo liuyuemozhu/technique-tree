@@ -1,6 +1,6 @@
 <template>
   <div class="main-container">
-    <Add />
+    <Add :addComment="addComment" />
     <Comment :comments="comments" />
   </div>
 </template>
@@ -14,6 +14,7 @@ export default {
   data() {
     return {
       comments: [
+        // 数据在哪个组件，更新数据的方法就应该定义在哪个方法
         { name: 'Bob', content: '还可以' },
         { name: 'Cat', content: '有些难' },
         { name: 'Jie', content: '挺好用' }
@@ -23,6 +24,13 @@ export default {
   components: {
     Add,
     Comment
+  },
+  methods: {
+    // 添加评论
+    addComment(comment) {
+      this.comments.push(comment)
+      console.log(comments)
+    }
   }
 }
 </script>
