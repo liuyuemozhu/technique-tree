@@ -6,13 +6,13 @@
 
 <script>
 export default {
-  name: "Header",
+  name: 'Header',
   data() {
     return {
-      msg: "请发表对Vue的评论"
-    };
+      msg: '请发表对Vue的评论'
+    }
   }
-};
+}
 </script>
 
 <style lang="scss">

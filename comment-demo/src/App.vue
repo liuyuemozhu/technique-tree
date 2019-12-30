@@ -1,22 +1,21 @@
 <template>
   <div id="app">
     <Header />
-    <Add />
+    <Main />
   </div>
 </template>
 
 <script>
 import Header from './components/Header'
-import Add from './components/Add'
+import Main from './components/Main'
 
 export default {
   name: 'App',
   components: {
     Header,
-    Add
+    Main
   }
 }
 </script>
 
-<style>
-</style>
+<style></style>
