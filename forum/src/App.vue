@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     addComment(comment) {
-      this.comments.push(comment)
+      this.comments.unshift(comment)
     }
   }
 }

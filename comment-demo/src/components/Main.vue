@@ -28,8 +28,7 @@ export default {
   methods: {
     // 添加评论
     addComment(comment) {
-      this.comments.push(comment)
-      console.log(comments)
+      this.comments.unshift(comment)
     }
   }
 }

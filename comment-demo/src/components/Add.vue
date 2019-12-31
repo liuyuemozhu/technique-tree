@@ -5,7 +5,7 @@
       <br />
       <input type="text" placeholder="请填写用户名" v-model="name" />
       <br />
-      <span>{{ userContent }}</span>
+      <span>{{ userCon }}</span>
       <br />
       <textarea
         name=""
