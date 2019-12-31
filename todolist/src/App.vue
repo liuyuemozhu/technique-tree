@@ -1,9 +1,10 @@
 <template>
   <div id="app">
     <Header @give-mission="showMission" />
-    <!-- 父组件将接收Header组件的值传给需要的子组件 -->
+    <!-- 父组件(App)将接收Header组件的值传给需要的子组件 -->
     <TodoList :mission="mission" />
-    <Footer />
+    <!-- 父组件(App)将接收Header组件的count值传给Footer组件，以更新其组件的“全部”数目 -->
+    <Footer :count="count" />
   </div>
 </template>
 
@@ -16,14 +17,16 @@ export default {
   name: 'App',
   data() {
     return {
-      mission: []
+      mission: [],
+      count: 0
     }
   },
   methods: {
-    showMission(mission) {
+    showMission(mission, count) {
       // 接收Header子组件传过来的值，并赋值给当前(父)组件，以便用于向其他子组件传值
       this.mission.push(mission)
-      console.log(mission)
+      this.count = count
+      // console.log(mission, count)
     }
   },
   components: {

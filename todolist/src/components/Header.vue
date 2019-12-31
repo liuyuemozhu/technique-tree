@@ -14,7 +14,8 @@ export default {
   name: 'Header',
   data() {
     return {
-      mission: ''
+      mission: '',
+      count: 0
     }
   },
   methods: {
@@ -26,7 +27,8 @@ export default {
         return
       }
       // 2.子组件向父组件传值
-      this.$emit('give-mission', this.mission)
+      this.count++
+      this.$emit('give-mission', this.mission, this.count)
       this.mission = ''
     }
   }

@@ -2,7 +2,12 @@
   <div class="container">
     <ul>
       <!-- 当前组件传值给其子组件 -->
-      <Item v-for="(item, index) in mission" :key="index" :item="item" />
+      <Item
+        v-for="(item, index) in mission"
+        :key="index"
+        :item="item"
+        :index="index"
+      />
     </ul>
   </div>
 </template>

@@ -1,13 +1,24 @@
 <template>
-  <li><input type="checkbox" />{{ item }}</li>
+  <li><input type="checkbox" v-model="isChecked" @click="test" />{{ item }}</li>
 </template>
 
 <script>
 export default {
   name: 'Item',
-  props: ['item'],
+  // 接收父组件（TodoList）的传值
+  props: ['item', 'index'],
   data() {
-    return {}
+    return {
+      isChecked: false
+    }
+  },
+  methods: {
+    test() {
+      this.isChecked = !this.isChecked
+      if (this.isChecked) {
+        // 传值给 Footer 组件，并更新“已完成”。需要先传值给App组件
+      }
+    }
   }
 }
 </script>
