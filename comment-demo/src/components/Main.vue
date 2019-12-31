@@ -1,7 +1,7 @@
 <template>
   <div class="main-container">
     <Add :addComment="addComment" />
-    <Comment :comments="comments" />
+    <Comment :comments="comments" :deleteComment="deleteComment" />
   </div>
 </template>
 
@@ -29,6 +29,9 @@ export default {
     // 添加评论
     addComment(comment) {
       this.comments.unshift(comment)
+    },
+    deleteComment(index) {
+      this.comments.splice(index, 1)
     }
   }
 }

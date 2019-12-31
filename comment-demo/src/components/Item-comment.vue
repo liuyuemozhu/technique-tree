@@ -1,7 +1,7 @@
 <template>
   <li>
     <div class="item-comment">
-      <div class="btn-div">{{ delete_content }}</div>
+      <div class="btn-div" @click="deleteItem">{{ delete_content }}</div>
       <p class="user">
         <span>{{ comment.name }}</span
         ><span>说：</span>
@@ -18,11 +18,26 @@ export default {
   name: 'Item-comment',
   // 声明接收属性：指定属性名和属性值类型
   props: {
-    comment: Object
+    comment: Object,
+    index: Number,
+    deleteComment: {
+      type: Function,
+      required: true
+    }
   },
   data() {
     return {
       delete_content: '删除'
+    }
+  },
+  methods: {
+    deleteItem() {
+      // 1.解构赋值 -- content
+      const { comment } = this
+      // 2.提示确认框，删除该条评论 (判断条件使用ES6模板字符串)
+      if (window.confirm(`您确定要删除 ${comment.name} 的评论吗？`)) {
+        this.deleteComment(this.index)
+      }
     }
   }
 }
