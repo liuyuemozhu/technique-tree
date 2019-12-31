@@ -56,6 +56,9 @@ export default {
       }
       // 3.添加数据
       this.addComment(comment)
+      // 4.清空输入框的内容
+      this.name = ''
+      this.content = ''
     }
   }
 }

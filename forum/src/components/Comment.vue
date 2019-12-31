@@ -6,6 +6,8 @@
         v-for="(comment, index) in comments"
         :key="index"
         :comment="comment"
+        :index="index"
+        :deleteComment="deleteComment"
       />
     </ul>
   </div>
@@ -16,7 +18,16 @@ import Item from './Item'
 export default {
   name: 'Comment',
   // 接收父组件传过来的属性
-  props: ['comments'],
+  // props: ['comments'],
+  props: {
+    comments: {
+      type: Array
+    },
+    deleteComment: {
+      type: Function,
+      required: true
+    }
+  },
   data() {
     return {
       commentMsg: '评论内容:'
