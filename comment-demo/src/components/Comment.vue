@@ -1,6 +1,7 @@
 <template>
   <div class="comment-container">
     <h3>{{ msg }}</h3>
+    <h4 v-show="comments.length == 0">暂无评论，请在左侧添加评论</h4>
     <ul>
       <Item
         v-for="(comment, index) in comments"
