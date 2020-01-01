@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <input type="checkbox" />已完成：{{ finished }} / 全部：{{ count }}
+    <input type="checkbox" />已完成：{{ finishedNum }} / 全部：{{ total }}
     <div class="clear">清除已完成的任务</div>
   </div>
 </template>
@@ -8,10 +8,10 @@
 <script>
 export default {
   name: 'Footer',
-  props: ['count'],
+  props: ['total', 'finishedNum'],
   data() {
     return {
-      finished: '0'
+      isChecked: false
     }
   }
 }

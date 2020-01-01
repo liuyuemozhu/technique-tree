@@ -14,8 +14,7 @@ export default {
   name: 'Header',
   data() {
     return {
-      mission: '',
-      count: 0
+      mission: ''
     }
   },
   methods: {
@@ -26,9 +25,9 @@ export default {
         alert('请输入具体任务名称')
         return
       }
-      // 2.子组件向父组件传值
-      this.count++
-      this.$emit('give-mission', this.mission, this.count)
+      // 2.子组件向父组件传值 --- 任务名称
+      this.$emit('give-mission', this.mission)
+      // 3.任务名称输入完成后，清空输入框
       this.mission = ''
     }
   }
