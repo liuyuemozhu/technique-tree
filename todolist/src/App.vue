@@ -5,9 +5,14 @@
     <TodoList
       :mission="mission"
       @finishedNumToApp="receiveFinishedNumFromTodoList"
+      :isAll="isAll"
     />
     <!-- 父组件(App)将接收Header组件的mission数组总长度值传给Footer组件，以更新其组件的“全部”数目 -->
-    <Footer :total="mission.length" :finishedNum="finishedNum" />
+    <Footer
+      :total="mission.length"
+      :finishedNum="finishedNum"
+      @test="receiveBoolFromFooter"
+    />
   </div>
 </template>
 
@@ -21,16 +26,20 @@ export default {
   data() {
     return {
       mission: [],
-      finishedNum: 0
+      finishedNum: 0,
+      isAll: false
     }
   },
   methods: {
     showMission(mission) {
       // 接收Header子组件传过来的值，并赋值给当前(父)组件，以便用于向其他子组件传值
-      this.mission.push(mission)
+      this.mission.unshift(mission)
     },
     receiveFinishedNumFromTodoList(finishedNum) {
       this.finishedNum = finishedNum
+    },
+    receiveBoolFromFooter(isAll) {
+      this.isAll = isAll
     }
   },
   components: {

@@ -1,30 +1,12 @@
 <template>
   <div class="container">
-    <input type="checkbox" v-model="isChecked" @click="test" />已完成：{{
-      finishedNum
-    }}
-    / 全部：{{ total }}
+    <input type="checkbox" />已完成：
     <div class="clear">清除已完成的任务</div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'Footer',
-  props: ['total', 'finishedNum'],
-  data() {
-    return {
-      isChecked: false
-    }
-  },
-  methods: {
-    test() {
-      this.isChecked = !this.isChecked
-      // 向父组件发射一个布尔值
-      this.$emit('test', this.isChecked)
-    }
-  }
-}
+export default {}
 </script>
 
 <style scoped lang="scss">

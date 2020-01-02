@@ -9,7 +9,7 @@
         :index="index"
         :itemSum="mission.length"
         @finishedNum="receiveFinishedNum"
-        :value="item"
+        :isAll="isAll"
       />
     </ul>
   </div>
@@ -21,7 +21,11 @@ export default {
   name: 'TodoList',
   // TodoList当前组件通过 props 接收父组件的值
   props: {
-    mission: Array
+    mission: Array,
+    isAll: {
+      type: Boolean,
+      required: true
+    }
   },
   data() {
     return {

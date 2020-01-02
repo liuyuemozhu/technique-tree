@@ -1,11 +1,6 @@
 <template>
   <li>
-    <input
-      type="checkbox"
-      v-model="isChecked"
-      :value="value"
-      @click="emitFinishedNum"
-    />
+    <input type="checkbox" :checked="isAll" @click="emitFinishedNum" />
     <a href="javascript:;" :class="{ active: isChecked }">{{ item }}</a>
   </li>
 </template>
@@ -14,7 +9,15 @@
 export default {
   name: 'Item',
   // 接收父组件（TodoList）的传值
-  props: ['item', 'index', 'itemSum', 'value'],
+  // props: ['item', 'index', 'isAll'],
+  props: {
+    item: String,
+    index: Number,
+    isAll: {
+      type: Boolean,
+      required: true
+    }
+  },
   data() {
     return {
       isChecked: false
@@ -25,11 +28,7 @@ export default {
       // 1.toggle the attribute named 'isChecked'
       this.isChecked = !this.isChecked
       // 2.无论是否被选中，都向父组件发送 选中状态 和 当前checkbox的索引值
-      if (this.isChecked) {
-        this.$emit('finishedNum', this.isChecked, this.index)
-      } else {
-        this.$emit('finishedNum', this.isChecked, this.index)
-      }
+      this.$emit('finishedNum', this.isChecked, this.index)
     }
   }
 }
