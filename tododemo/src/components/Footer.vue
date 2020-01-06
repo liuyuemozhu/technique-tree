@@ -1,12 +1,40 @@
 <template>
   <div class="container">
-    <input type="checkbox" />已完成：
-    <div class="clear">清除已完成的任务</div>
+    <input type="checkbox" v-model="isAll" />已完成：{{ completedSize }} /
+    全部：{{ todos.length }}
+    <div class="clear" v-show="completedSize" @click="deleteCompletedTodos">
+      清除已完成的任务
+    </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'Footer',
+  props: {
+    todos: Array,
+    deleteCompletedTodos: Function,
+    selectAllTodos: Function
+  },
+  data() {
+    return {
+      isChecked: false
+    }
+  },
+  computed: {
+    completedSize() {
+      return this.todos.reduce((pre, todo) => pre + (todo.status ? 1 : 0), 0)
+    },
+    isAll: {
+      get() {
+        return this.completedSize == this.todos.length && this.completedSize > 0
+      },
+      set(value) {
+        this.selectAllTodos(value)
+      }
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">

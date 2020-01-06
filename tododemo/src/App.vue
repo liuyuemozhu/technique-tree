@@ -1,8 +1,12 @@
 <template>
   <div id="app">
-    <Header />
-    <TodoList :todos="todos" />
-    <Footer />
+    <Header :addTodo="addTodo" />
+    <TodoList :todos="todos" :deleteItem="deleteItem" />
+    <Footer
+      :todos="todos"
+      :deleteCompletedTodos="deleteCompletedTodos"
+      :selectAllTodos="selectAllTodos"
+    />
   </div>
 </template>
 
@@ -15,11 +19,38 @@ export default {
   name: 'App',
   data() {
     return {
-      todos: [
-        { name: '第一件事', status: false },
-        { name: '第二件事', status: false },
-        { name: '第三件事', status: false }
-      ]
+      // todos: [
+      //   { name: '第一件事', status: false },
+      //   { name: '第二件事', status: false },
+      //   { name: '第三件事', status: false }
+      // ]
+      todos: JSON.parse(window.localStorage.getItem('todo_key') || '[]')
+    }
+  },
+  methods: {
+    // 添加任务
+    addTodo(todo) {
+      this.todos.unshift(todo)
+    },
+    deleteItem(index) {
+      this.todos.splice(index, 1)
+    },
+    // 删除所有选中的todos
+    deleteCompletedTodos() {
+      this.todos = this.todos.filter(todo => !todo.status)
+    },
+    // 全选/全不选
+    selectAllTodos(isChecked) {
+      this.todos.forEach(todo => (todo.status = isChecked))
+    }
+  },
+  watch: {
+    todos: {
+      deep: true, // 深度监视
+      handler: function(value) {
+        // 将todos最新值保存到localstorage中
+        window.localStorage.setItem('todo_key', JSON.stringify(value))
+      }
     }
   },
   components: {

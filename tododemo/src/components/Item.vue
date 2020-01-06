@@ -1,7 +1,8 @@
 <template>
-  <li>
+  <li @mouseenter="handleEnter(true)" @mouseleave="handleEnter(false)">
     <input type="checkbox" v-model="todo.status" />
-    <a href="javascript:;">{{ todo.name }}</a>
+    <a href="javascript:;" :class="{ active: todo.status }">{{ todo.name }}</a>
+    <button class="btn_delete" v-show="isShow" @click="deleteTodo">删除</button>
   </li>
 </template>
 
@@ -9,7 +10,25 @@
 export default {
   name: 'Item',
   props: {
-    todo: Object
+    todo: Object,
+    index: Number,
+    deleteItem: Function
+  },
+  data() {
+    return {
+      isShow: false
+    }
+  },
+  methods: {
+    handleEnter(isEnter) {
+      this.isShow = isEnter
+    },
+    deleteTodo() {
+      const { todo, index } = this
+      if (window.confirm(`确认删除 “${todo.name}” 的任务吗？`)) {
+        this.deleteItem(this.index)
+      }
+    }
   }
 }
 </script>
@@ -22,6 +41,9 @@ li {
   height: $liHeight;
   line-height: $liHeight;
   margin: 8px auto;
+  &:hover {
+    background: #ccc;
+  }
   input[type='checkbox'] {
     margin-right: 1em;
   }
@@ -30,8 +52,16 @@ li {
     text-decoration: none;
     cursor: default;
   }
+  .btn_delete {
+    float: right;
+    margin-top: 5px;
+    margin-right: 10px;
+    background: orange;
+    border: none;
+    border-radius: 5px;
+  }
 }
 .active {
-  text-decoration: line-through;
+  text-decoration: line-through red;
 }
 </style>
