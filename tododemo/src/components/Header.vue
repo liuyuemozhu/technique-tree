@@ -13,10 +13,10 @@
 export default {
   name: 'Header',
   props: {
-    addTodo: {
-      type: Function,
-      required: true
-    }
+    // addTodo: {
+    //   type: Function,
+    //   required: true
+    // }
   },
   data() {
     return {
@@ -36,7 +36,9 @@ export default {
       // 2.封装对象
       let todo = { name, status }
       // 3.添加数据
-      this.addTodo(todo)
+      //   this.addTodo(todo)
+      // 3.触发事件
+      this.$emit('addTodo', todo)
       // 4.清空输入框
       this.name = ''
     }

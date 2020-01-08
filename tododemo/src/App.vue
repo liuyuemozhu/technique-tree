@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <Header :addTodo="addTodo" />
+    <!-- <Header :addTodo="addTodo" /> -->
+    <!-- <Header @addTodo="addTodo"></Header> -->
+    <Header ref="header"></Header>
     <TodoList :todos="todos" :deleteItem="deleteItem" />
     <Footer
       :todos="todos"
@@ -26,6 +28,10 @@ export default {
       // ]
       todos: JSON.parse(window.localStorage.getItem('todo_key') || '[]')
     }
+  },
+  mounted() {
+    // 执行异步代码，给Header绑定 addTodo 事件监听
+    this.$refs.header.$on('addTodo', this.addTodo)
   },
   methods: {
     // 添加任务
