@@ -9,13 +9,20 @@
       :deleteCompletedTodos="deleteCompletedTodos"
       :selectAllTodos="selectAllTodos"
     />
+    <Request></Request>
+    <!-- <div v-if="!repoUrl">loading...</div>
+    <div v-else>
+      最受欢迎的库：<a :href="repoUrl" target="_blank">{{ repoName }}</a>
+    </div> -->
   </div>
 </template>
 
 <script>
+// import axios from 'axios'
 import Header from './components/Header'
 import TodoList from './components/TodoList'
 import Footer from './components/Footer'
+import Request from './components/Request'
 
 export default {
   name: 'App',
@@ -27,11 +34,27 @@ export default {
       //   { name: '第三件事', status: false }
       // ]
       todos: JSON.parse(window.localStorage.getItem('todo_key') || '[]')
+      // repoUrl: '',
+      // repoName: ''
     }
   },
   mounted() {
     // 执行异步代码，给Header绑定 addTodo 事件监听
     this.$refs.header.$on('addTodo', this.addTodo)
+
+    // ajax 获取数据
+    // const url = 'https://api.github.com/search/repositories?q=v&sort=stars'
+    // axios
+    //   .get(url)
+    //   .then(response => {
+    //     const result = response.data
+    //     const mostRepo = result.items[0]
+    //     this.repoUrl = mostRepo.html_url
+    //     this.repoName = mostRepo.name
+    //   })
+    //   .catch(error => {
+    //     alert('获取失败')
+    //   })
   },
   methods: {
     // 添加任务
@@ -62,7 +85,8 @@ export default {
   components: {
     Header,
     TodoList,
-    Footer
+    Footer,
+    Request
   }
 }
 </script>
