@@ -48,9 +48,6 @@ export default {
       ]
       this.books = books
     }, 1000)
-  },
-  watch: {
-    books: function(value) {}
   }
 }
 </script>

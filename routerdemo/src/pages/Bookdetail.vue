@@ -14,11 +14,7 @@ export default {
   name: 'Bookdetail',
   data() {
     return {
-      bookdetail: {
-        id: 'id',
-        title: 'title',
-        content: 'content'
-      }
+      bookdetail: {}
     }
   },
   mounted() {
@@ -57,7 +53,7 @@ export default {
   },
   watch: {
     $route: function(value) {
-      const id = this.$route.params.id * 1
+      const id = value.params.id * 1
       this.bookdetail = this.allbookdetail.find(detail => detail.id === id)
     }
   }

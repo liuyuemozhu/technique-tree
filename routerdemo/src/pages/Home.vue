@@ -9,9 +9,7 @@
       </router-link>
       <!-- <span class="header-news">News</span> -->
     </header>
-    <keep-alive>
-      <router-view />
-    </keep-alive>
+    <router-view msg="通过router-view传递参数" />
   </div>
 </template>
 
