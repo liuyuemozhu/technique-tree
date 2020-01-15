@@ -10,6 +10,7 @@ import About from "@/pages/About";
 import Home from "@/pages/Home";
 import News from "@/pages/News";
 import Books from "@/pages/Books";
+import Bookdetail from "@/pages/Bookdetail";
 
 // 因为 vue-router 为 vue 插件，所以需要使用 Vue.use() 初始化（官方API）
 Vue.use(Router);
@@ -40,7 +41,14 @@ export default new Router({
         {
           path: "books",
           name: "Books",
-          component: Books
+          component: Books,
+          children: [
+            {
+              path: "/home/books/bookdetail/:id",
+              name: "BookDetail",
+              component: Bookdetail
+            }
+          ]
         },
         {
           path: "",

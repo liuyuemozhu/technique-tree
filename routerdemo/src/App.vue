@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <router-view />
+    <!-- 缓存路由 -->
+    <keep-alive>
+      <router-view />
+    </keep-alive>
     <footer>
       <router-link to="/about" class="footer-about">
         <span>About</span>
