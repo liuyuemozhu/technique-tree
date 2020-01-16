@@ -1,0 +1,31 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body,
+canvas {
+	/* height: 1000px; */
+	padding: 0;
+	margin: 0;
+	background-color: #f0f0f0;
+}
+
+.container .-tablet,
+.container .-tablet-container,
+.container .-canvas-wrapper {
+	height: 100%;
+}
+
+.tablet-btns {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background: #f0f0f0;
+}
+.tablet-btns .save-canvas-to-img,
+.tablet-btns .clear-canvas {
+	border-radius: 10px;
+	padding: 8px 12px;
+}
